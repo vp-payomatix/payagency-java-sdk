@@ -1,0 +1,63 @@
+# Files to exclude from Maven distributions and releases
+
+# Never include in distributions
+secrets/
+config/local/
+*.local
+*.env
+.env*
+application-local.properties
+application-dev.properties
+
+# Test data and credentials
+test-data/real-*
+live-test-*
+production-test-*
+
+# Development tools
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# Build artifacts
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation sources (keep only generated docs)
+docs/src/
+*.draft.md
+NOTES.md
+TODO.md
+INTERNAL.md
+
+# Coverage reports and analysis
+coverage/
+.nyc_output/
+*.lcov
+sonar-project.properties
+
+# Distribution files we don't want to redistribute
+node_modules/
+vendor/
