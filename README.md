@@ -19,25 +19,44 @@ A comprehensive Java SDK for integrating with PayAgency's payment processing API
 
 ## Installation
 
-### Maven
+### Maven (Recommended - No Authentication Required)
 
-Add this dependency to your `pom.xml`:
+Add the JitPack repository and dependency to your `pom.xml`:
 
 ```xml
-<dependency>
-    <groupId>com.payagency</groupId>
-    <artifactId>payagency-java-sdk</artifactId>
-    <version>1.0.15</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.vp-payomatix</groupId>
+        <artifactId>payagency-java-sdk</artifactId>
+        <version>v1.0.16</version>
+    </dependency>
+</dependencies>
 ```
 
-### Gradle
+### Gradle (JitPack)
 
-Add this to your `build.gradle`:
+Add JitPack repository and dependency to your `build.gradle`:
 
 ```gradle
-implementation 'com.payagency:payagency-java-sdk:1.0.15'
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.vp-payomatix:payagency-java-sdk:v1.0.16'
+}
 ```
+
+### Alternative: GitHub Packages (Enterprise)
+
+For enterprise users who prefer GitHub Packages, see [GitHub Packages Installation Guide](#github-packages-installation).
 
 ## Quick Start
 
@@ -726,6 +745,74 @@ Run the test suite:
 
 ```bash
 mvn test
+```
+
+## GitHub Packages Installation
+
+For enterprise users who prefer GitHub Packages:
+
+### Prerequisites
+
+1. Create a GitHub Personal Access Token:
+
+   - Go to: https://github.com/settings/tokens
+   - Click "Generate new token (classic)"
+   - Select scope: `read:packages`
+   - Copy the token
+
+2. Configure Maven settings (`~/.m2/settings.xml`):
+
+```xml
+<settings>
+    <servers>
+        <server>
+            <id>github</id>
+            <username>YOUR_GITHUB_USERNAME</username>
+            <password>YOUR_GITHUB_TOKEN</password>
+        </server>
+    </servers>
+</settings>
+```
+
+### Maven Configuration
+
+Add to your `pom.xml`:
+
+```xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/vp-payomatix/payagency-java-sdk</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.payagency</groupId>
+        <artifactId>payagency-java-sdk</artifactId>
+        <version>1.0.15</version>
+    </dependency>
+</dependencies>
+```
+
+### Gradle Configuration
+
+Add to your `build.gradle`:
+
+```gradle
+repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/vp-payomatix/payagency-java-sdk")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.payagency:payagency-java-sdk:1.0.15'
+}
 ```
 
 ## Contributing

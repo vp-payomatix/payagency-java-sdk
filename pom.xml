@@ -226,6 +226,18 @@
                 </plugins>
             </build>
         </profile>
+        
+        <!-- Profile for GitHub Packages deployment -->
+        <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Packages</name>
+                    <url>https://maven.pkg.github.com/vp-payomatix/payagency-java-sdk</url>
+                </repository>
+            </distributionManagement>
+        </profile>
     </profiles>
     
     <!-- Distribution Management for Maven Central -->
