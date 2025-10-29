@@ -35,7 +35,7 @@ Add the JitPack repository and dependency to your `pom.xml`:
     <dependency>
         <groupId>com.github.vp-payomatix</groupId>
         <artifactId>payagency-java-sdk</artifactId>
-        <version>v1.0.16</version>
+        <version>v1.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.vp-payomatix:payagency-java-sdk:v1.0.16'
+    implementation 'com.github.vp-payomatix:payagency-java-sdk:v1.0.0'
 }
 ```
 
@@ -790,7 +790,7 @@ Add to your `pom.xml`:
     <dependency>
         <groupId>com.payagency</groupId>
         <artifactId>payagency-java-sdk</artifactId>
-        <version>1.0.15</version>
+        <version>1.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -811,7 +811,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.payagency:payagency-java-sdk:1.0.15'
+    implementation 'com.payagency:payagency-java-sdk:1.0.0'
 }
 ```
 

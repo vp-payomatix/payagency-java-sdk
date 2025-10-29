@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 echo -e "${YELLOW}📋 Pre-deployment Checklist:${NC}"
 echo "✅ All tests passing (33/33)"
 echo "✅ Build successful"
-echo "✅ Version 1.0.15 ready"
+echo "✅ Version 1.0.0 ready"
 echo "✅ GitHub repository configured"
 echo ""
 
@@ -60,12 +60,12 @@ echo -e "${GREEN}✅ GitHub credentials configured${NC}"
 echo ""
 
 # Confirm deployment
-echo -e "${YELLOW}🚀 Ready to deploy PayAgency Java SDK v1.0.15 to GitHub Packages${NC}"
+echo -e "${YELLOW}🚀 Ready to deploy PayAgency Java SDK v1.0.0 to GitHub Packages${NC}"
 echo ""
 echo "This will:"
 echo "• Deploy JAR, sources, and javadoc to GitHub Packages"
 echo "• Make the SDK available via Maven/Gradle"
-echo "• Allow others to use: com.payagency:payagency-java-sdk:1.0.15"
+echo "• Allow others to use: com.payagency:payagency-java-sdk:1.0.0"
 echo ""
 
 read -p "Continue with deployment? (y/N): " -n 1 -r
@@ -84,7 +84,7 @@ echo ""
 echo "🔄 Deploying to GitHub Packages..."
 if mvn clean deploy -P github; then
     echo ""
-    echo -e "${GREEN}🎉 SUCCESS! PayAgency Java SDK v1.0.15 deployed to GitHub Packages${NC}"
+    echo -e "${GREEN}🎉 SUCCESS! PayAgency Java SDK v1.0.0 deployed to GitHub Packages${NC}"
     echo ""
     echo -e "${YELLOW}📖 Usage Instructions:${NC}"
     echo ""
@@ -101,7 +101,7 @@ if mvn clean deploy -P github; then
     echo "  <dependency>"
     echo "    <groupId>com.payagency</groupId>"
     echo "    <artifactId>payagency-java-sdk</artifactId>"
-    echo "    <version>1.0.15</version>"
+    echo "    <version>1.0.0</version>"
     echo "  </dependency>"
     echo "</dependencies>"
     echo ""
