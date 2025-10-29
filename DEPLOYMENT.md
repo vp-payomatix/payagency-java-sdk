@@ -5,6 +5,7 @@
 ### Option 1: GitHub Package Repository (Recommended for Open Source)
 
 1. **Push to GitHub:**
+
    ```bash
    git remote add origin https://github.com/vp-payomatix/payagency-java-sdk.git
    git push -u origin main
@@ -13,6 +14,7 @@
 
 2. **Configure GitHub Package Registry:**
    Add to your `~/.m2/settings.xml`:
+
    ```xml
    <settings>
      <servers>
@@ -33,6 +35,7 @@
 ### Option 2: Maven Central (Production Distribution)
 
 1. **Prerequisites:**
+
    - GPG key configured for signing
    - Sonatype OSSRH account
    - Configure `~/.m2/settings.xml` with Sonatype credentials
@@ -45,6 +48,7 @@
 ### Option 3: Local Development/Testing
 
 1. **Install to Local Repository:**
+
    ```bash
    mvn clean install
    ```
@@ -74,11 +78,12 @@ The following artifacts are ready for distribution:
 ✅ Code coverage generated  
 ✅ Javadoc complete  
 ✅ Open source governance files present  
-✅ Maven Central distribution ready  
+✅ Maven Central distribution ready
 
 ## 🚀 Quick Deploy Commands
 
 ### GitHub Packages:
+
 ```bash
 # Set up GitHub remote (if not already done)
 git remote add origin https://github.com/vp-payomatix/payagency-java-sdk.git
@@ -92,12 +97,14 @@ mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.c
 ```
 
 ### Maven Central:
+
 ```bash
 # Deploy with GPG signing
 mvn clean deploy -P release
 ```
 
 ### Local Install:
+
 ```bash
 # Install to local Maven repository
 mvn clean install
@@ -106,12 +113,14 @@ mvn clean install
 ## 📋 Post-Deployment
 
 1. **Create GitHub Release:**
+
    - Go to GitHub repository
    - Create new release from tag v1.0.15
    - Attach JAR files
    - Add release notes
 
 2. **Update Documentation:**
+
    - Update version in README.md examples
    - Create CHANGELOG.md entry
    - Update any integration guides
