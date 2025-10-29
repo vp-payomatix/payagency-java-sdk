@@ -1,10 +1,12 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input for estimating payout fees.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EstimateFeeInput {
     @JsonProperty("wallet_id")
     private String walletId;

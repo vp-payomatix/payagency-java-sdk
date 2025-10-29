@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Request payload for hosted payment processing.
+ * Request payload for hosted payments.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class HostedInput {
     @JsonProperty("first_name")
     private String firstName;

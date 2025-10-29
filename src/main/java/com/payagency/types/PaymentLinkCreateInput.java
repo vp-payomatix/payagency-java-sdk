@@ -1,10 +1,12 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input for creating payment links.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentLinkCreateInput {
     @JsonProperty("payment_template_id")
     private String paymentTemplateId;

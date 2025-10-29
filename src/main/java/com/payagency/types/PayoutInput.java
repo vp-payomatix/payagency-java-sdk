@@ -1,10 +1,12 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input payload for payout operations.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PayoutInput {
     @JsonProperty("wallet_id")
     private String walletId;

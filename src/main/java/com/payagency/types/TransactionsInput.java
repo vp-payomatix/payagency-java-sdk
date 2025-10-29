@@ -1,10 +1,12 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input parameters for transaction queries.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransactionsInput {
     @JsonProperty("transaction_start_date")
     private String transactionStartDate;

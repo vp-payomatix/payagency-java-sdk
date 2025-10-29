@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Request payload for Server-to-Server (S2S) card payments.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class S2SInput {
     @JsonProperty("first_name")
     private String firstName;

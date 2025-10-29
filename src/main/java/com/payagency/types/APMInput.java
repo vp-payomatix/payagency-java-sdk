@@ -1,11 +1,13 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input type for Alternative Payment Method (APM) operations.
  * Uses the same structure as HostedInput but with its own builder.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class APMInput {
     @JsonProperty("first_name")
     private String firstName;

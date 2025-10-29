@@ -1,10 +1,12 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Input payload for refund operations.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RefundInput {
     @JsonProperty("reason")
     private String reason;

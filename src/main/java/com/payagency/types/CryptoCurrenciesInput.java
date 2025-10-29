@@ -1,7 +1,9 @@
 package com.payagency.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CryptoCurrenciesInput {
     @JsonProperty("country")
     private String country; // ISO 3166-1 alpha-2 country code
