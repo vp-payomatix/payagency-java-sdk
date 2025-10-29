@@ -2,7 +2,7 @@
 
 A comprehensive Java SDK for integrating with PayAgency's payment processing API. This SDK provides support for various payment methods including card payments, crypto payments, payouts, and payment links with built-in encryption.
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.payagency/payagency-java-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.payagency/payagency-java-sdk)
+[![JitPack](https://jitpack.io/v/vp-payomatix/payagency-java-sdk.svg)](https://jitpack.io/#vp-payomatix/payagency-java-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -35,7 +35,7 @@ Add the JitPack repository and dependency to your `pom.xml`:
     <dependency>
         <groupId>com.github.vp-payomatix</groupId>
         <artifactId>payagency-java-sdk</artifactId>
-        <version>v1.0.0</version>
+        <version>v1.0.1</version>
     </dependency>
 </dependencies>
 ```
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.vp-payomatix:payagency-java-sdk:v1.0.0'
+    implementation 'com.github.vp-payomatix:payagency-java-sdk:v1.0.1'
 }
 ```
 
@@ -790,7 +790,7 @@ Add to your `pom.xml`:
     <dependency>
         <groupId>com.payagency</groupId>
         <artifactId>payagency-java-sdk</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
 </dependencies>
 ```
@@ -811,7 +811,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.payagency:payagency-java-sdk:1.0.0'
+    implementation 'com.payagency:payagency-java-sdk:1.0.1'
 }
 ```
 
