@@ -829,4 +829,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For support, email support@payagency.com or visit our [documentation](https://docs.payagency.com).
+For support, email support@pay.agency or visit our [documentation](https://docs.pay.agency).

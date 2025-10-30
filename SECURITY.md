@@ -8,7 +8,7 @@ The PayAgency team takes security issues seriously. We appreciate your efforts t
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report security vulnerabilities by emailing security@payagency.com.
+Instead, please report security vulnerabilities by emailing support@pay.agency.
 
 Include the following information in your report:
 
@@ -97,6 +97,6 @@ However, compliance is a shared responsibility between PayAgency and our custome
 
 For related questions or concerns:
 
-- General support: support@payagency.com
+- General support: support@pay.agency
 
 Thank you for helping keep PayAgency and our users safe!
