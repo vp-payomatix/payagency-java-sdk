@@ -7,7 +7,7 @@
     
     <groupId>com.payagency</groupId>
     <artifactId>payagency-java-sdk</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     
     <name>PayAgency Java SDK</name>
