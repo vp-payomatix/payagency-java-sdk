@@ -13,6 +13,7 @@
     <name>PayAgency Java SDK</name>
     <description>Java SDK for PayAgency API with encryption support</description>
     <url>https://github.com/vp-payomatix/payagency-java-sdk</url>
+    <!-- JitPack rebuild trigger -->
     
     <licenses>
         <license>
