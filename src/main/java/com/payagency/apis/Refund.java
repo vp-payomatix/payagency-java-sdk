@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 public class Refund {
     private static final Logger logger = LoggerFactory.getLogger(Refund.class);
     private final ApiClient apiClient;
+    private final String environment;
 
     /**
      * Create a new Refund API instance.
@@ -23,6 +24,7 @@ public class Refund {
      */
     public Refund(ApiClient apiClient) {
         this.apiClient = apiClient;
+        this.environment = apiClient.getEnvironment();
     }
 
     /**
@@ -37,10 +39,12 @@ public class Refund {
      */
     public RefundOutput create(RefundInput data) {
         try {
-            String endpoint = "/api/v1/refund";
+            String endpoint = "test".equals(environment) 
+                ? "/api/v1/test/refund" 
+                : "/api/v1/live/refund";
             
-            logger.debug("Processing refund for transaction: {}", data.getTransactionId());
-            return apiClient.post(endpoint, data, RefundOutput.class);
+            logger.debug("Processing refund for transaction: {} via endpoint: {}", data.getTransactionId(), endpoint);
+            return apiClient.post(endpoint, data, RefundOutput.class, true);
         } catch (Exception e) {
             logger.error("Error creating refund: {}", e.getMessage());
             throw new PayAgencyException("Refund failed: " + e.getMessage(), e);

@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response for crypto OffRamp operations.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CryptoOffRampOutput {
     @JsonProperty("status")
     private String status;

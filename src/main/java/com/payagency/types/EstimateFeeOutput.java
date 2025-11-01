@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response for fee estimation.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EstimateFeeOutput {
     @JsonProperty("data")
     private EstimateData data;

@@ -1,11 +1,13 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
  * Response for transactions query.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransactionsOutput {
     @JsonProperty("message")
     private String message;
@@ -91,6 +93,22 @@ public class TransactionsOutput {
         
         @JsonProperty("user")
         private User user;
+        
+        // Additional fields that may be present in wallet transactions
+        @JsonProperty("address")
+        private String address;
+        
+        @JsonProperty("phone_number")
+        private String phoneNumber;
+        
+        @JsonProperty("message")
+        private String message;
+        
+        @JsonProperty("card_expiry_month")
+        private String cardExpiryMonth;
+        
+        @JsonProperty("card_expiry_year")
+        private String cardExpiryYear;
 
         // Default constructor
         public Transaction() {}
@@ -139,6 +157,19 @@ public class TransactionsOutput {
         public void setSuspiciousDate(String suspiciousDate) { this.suspiciousDate = suspiciousDate; }
         public void setMerchantConnector(MerchantConnector merchantConnector) { this.merchantConnector = merchantConnector; }
         public void setUser(User user) { this.user = user; }
+        
+        // Additional getters and setters
+        public String getAddress() { return address; }
+        public String getPhoneNumber() { return phoneNumber; }
+        public String getMessage() { return message; }
+        public String getCardExpiryMonth() { return cardExpiryMonth; }
+        public String getCardExpiryYear() { return cardExpiryYear; }
+        
+        public void setAddress(String address) { this.address = address; }
+        public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+        public void setMessage(String message) { this.message = message; }
+        public void setCardExpiryMonth(String cardExpiryMonth) { this.cardExpiryMonth = cardExpiryMonth; }
+        public void setCardExpiryYear(String cardExpiryYear) { this.cardExpiryYear = cardExpiryYear; }
 
         public static class MerchantConnector {
             @JsonProperty("name")
@@ -178,30 +209,35 @@ public class TransactionsOutput {
     }
 
     public static class PaginationMeta {
-        @JsonProperty("current_page")
-        private int currentPage;
+        @JsonProperty("hasNextPage")
+        private boolean hasNextPage;
         
-        @JsonProperty("per_page")
-        private int perPage;
+        @JsonProperty("hasPreviousPage")
+        private boolean hasPreviousPage;
         
-        @JsonProperty("total")
-        private int total;
+        @JsonProperty("nextCursor")
+        private String nextCursor;
         
-        @JsonProperty("last_page")
-        private int lastPage;
+        @JsonProperty("prevCursor")
+        private String prevCursor;
+        
+        @JsonProperty("totalCount")
+        private int totalCount;
 
         // Default constructor
         public PaginationMeta() {}
 
         // Getters and setters
-        public int getCurrentPage() { return currentPage; }
-        public int getPerPage() { return perPage; }
-        public int getTotal() { return total; }
-        public int getLastPage() { return lastPage; }
+        public boolean isHasNextPage() { return hasNextPage; }
+        public boolean isHasPreviousPage() { return hasPreviousPage; }
+        public String getNextCursor() { return nextCursor; }
+        public String getPrevCursor() { return prevCursor; }
+        public int getTotalCount() { return totalCount; }
 
-        public void setCurrentPage(int currentPage) { this.currentPage = currentPage; }
-        public void setPerPage(int perPage) { this.perPage = perPage; }
-        public void setTotal(int total) { this.total = total; }
-        public void setLastPage(int lastPage) { this.lastPage = lastPage; }
+        public void setHasNextPage(boolean hasNextPage) { this.hasNextPage = hasNextPage; }
+        public void setHasPreviousPage(boolean hasPreviousPage) { this.hasPreviousPage = hasPreviousPage; }
+        public void setNextCursor(String nextCursor) { this.nextCursor = nextCursor; }
+        public void setPrevCursor(String prevCursor) { this.prevCursor = prevCursor; }
+        public void setTotalCount(int totalCount) { this.totalCount = totalCount; }
     }
 }

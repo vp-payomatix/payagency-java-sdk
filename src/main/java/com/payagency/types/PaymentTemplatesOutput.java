@@ -1,11 +1,13 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
  * Response for payment templates query.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentTemplatesOutput {
     @JsonProperty("data")
     private List<PaymentTemplate> data;

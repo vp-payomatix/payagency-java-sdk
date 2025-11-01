@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response for crypto payment operations.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CryptoPaymentOutput {
     @JsonProperty("status")
     private String status;
