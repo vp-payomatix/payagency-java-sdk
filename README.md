@@ -19,7 +19,6 @@ A comprehensive Java SDK for integrating with PayAgency's payment processing API
 - **Robust Error Handling**: Comprehensive exception handling with detailed error messages
 - **JSON Optimization**: Smart null value handling with @JsonInclude annotations
 
-
 ## Installation
 
 ### Maven (Recommended - No Authentication Required)
@@ -665,7 +664,7 @@ TransactionsOutput transactions = payAgency.getTxn().getTransactions(txnInput);
 //     "hasNextPage": true,
 //     "hasPreviousPage": false,
 //     "nextCursor": "OTQy",
-//     "prevCursor": "OTcw", 
+//     "prevCursor": "OTcw",
 //     "totalCount": 815
 //   }
 // }
@@ -774,8 +773,6 @@ The SDK automatically encrypts request payloads using AES-256-CBC encryption wit
 3. Validate webhook signatures on your server
 4. Implement proper error handling
 5. Log transactions for auditing
-
-
 
 ## GitHub Packages Installation
 
