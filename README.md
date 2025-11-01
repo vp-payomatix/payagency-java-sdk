@@ -13,9 +13,12 @@ A comprehensive Java SDK for integrating with PayAgency's payment processing API
 - **Payment Links**: Create and manage payment links
 - **Payouts**: Send money to wallets and bank accounts
 - **Refunds**: Process refund transactions
-- **Transaction Management**: Query and manage transactions
+- **Transaction Management**: Query and manage transactions with cursor-based pagination
 - **Built-in Encryption**: Automatic AES-256-CBC encryption for sensitive data
 - **Environment Support**: Test and live environment configurations
+- **Robust Error Handling**: Comprehensive exception handling with detailed error messages
+- **JSON Optimization**: Smart null value handling with @JsonInclude annotations
+
 
 ## Installation
 
@@ -579,10 +582,10 @@ CryptoPayinOutput payinResult = payAgency.getCrypto().payin(payinInput);
 ```java
 RefundInput refundInput = RefundInput.builder()
     .reason("Customer request")
-    .transactionId("TXN_123")
+    .transactionId("PA5108743179386871")
     .build();
 
-RefundOutput refund = payAgency.refund(refundInput);
+RefundOutput refund = payAgency.getRefund().create(refundInput);
 
 // Response format:
 // {
@@ -625,28 +628,28 @@ TransactionsOutput transactions = payAgency.getTxn().getTransactions(txnInput);
 
 // Response format:
 // {
-//   "message": "string",
+//   "message": "Transactions fetched successfully",
 //   "data": [
 //     {
 //       "first_name": "James",
 //       "last_name": "Dean",
-//       "converted_amount": "100.00",
-//       "converted_currency": "USD",
 //       "transaction_id": "PA5108743179386871",
 //       "amount": "100",
 //       "currency": "GBP",
 //       "status": "SUCCESS",
-//       "card_type": "visa",
-//       "card_number": "****1111",
-//       "transaction_type": "PAYMENT",
+//       "card_type": "VISA",
+//       "card_number": "411111XXXXXX1111",
+//       "transaction_type": "CARD",
 //       "order_id": "ORDER_123",
 //       "country": "GB",
 //       "email": "james@gmail.com",
+//       "phone_number": "7654233212",
+//       "address": "64 Hertingfordbury Rd",
 //       "created_at": "2024-01-15T10:30:00Z",
-//       "transaction_date": "2024-01-15T10:30:00Z",
-//       "chargeback_date": null,
 //       "refund_date": null,
+//       "chargeback_date": null,
 //       "suspicious_date": null,
+//       "message": "Transaction processed successfully!.",
 //       "merchant_connector": {
 //         "name": "string"
 //       },
@@ -661,23 +664,56 @@ TransactionsOutput transactions = payAgency.getTxn().getTransactions(txnInput);
 //   "meta": {
 //     "hasNextPage": true,
 //     "hasPreviousPage": false,
-//     "nextCursor": "next_cursor_value",
-//     "prevCursor": null,
-//     "totalCount": 150
+//     "nextCursor": "OTQy",
+//     "prevCursor": "OTcw", 
+//     "totalCount": 815
 //   }
 // }
 
+// Pagination metadata contains actual API response data:
+// - hasNextPage/hasPreviousPage: Boolean flags for navigation
+// - nextCursor/prevCursor: Base64-encoded cursor values for pagination
+// - totalCount: Total number of transactions available
+
 // Get wallet transactions
-WalletTransactionsInput walletTxnInput = WalletTransactionsInput.builder()
+TransactionsInput walletTxnInput = TransactionsInput.builder()
     .transactionStartDate("2023-01-01") // Optional
     .transactionEndDate("2023-12-31") // Optional
     .nextCursor("cursor_value") // Optional
     .prevCursor("cursor_value") // Optional
     .build();
 
-WalletTransactionsOutput walletTransactions = payAgency.getTxn().getWalletTransactions(walletTxnInput);
+TransactionsOutput walletTransactions = payAgency.getTxn().getWalletTransactions(walletTxnInput);
 
 // Returns the same response format as getTransactions
+
+// Get payment status for a specific transaction
+PaymentStatusOutput paymentStatus = payAgency.getTxn().getPaymentStatus("PA5108743179386871");
+
+// Response format:
+// {
+//   "status": "SUCCESS",
+//   "message": "Payment found",
+//   "data": {
+//     "transaction_id": "PA5108743179386871",
+//     "amount": "100",
+//     "currency": "GBP",
+//     "status": "SUCCESS",
+//     "customer": {
+//       "first_name": "James",
+//       "last_name": "Dean",
+//       "email": "james@gmail.com"
+//     },
+//     "refund": {
+//       "status": false,
+//       "refund_date": null
+//     },
+//     "chargeback": {
+//       "status": false,
+//       "chargeback_date": null
+//     }
+//   }
+// }
 ```
 
 ## Environment Configuration
@@ -739,13 +775,7 @@ The SDK automatically encrypts request payloads using AES-256-CBC encryption wit
 4. Implement proper error handling
 5. Log transactions for auditing
 
-## Testing
 
-Run the test suite:
-
-```bash
-mvn test
-```
 
 ## GitHub Packages Installation
 
