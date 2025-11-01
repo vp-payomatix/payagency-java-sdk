@@ -1,5 +1,6 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
@@ -30,6 +31,7 @@ public class TransactionsOutput {
     public void setData(List<Transaction> data) { this.data = data; }
     public void setMeta(PaginationMeta meta) { this.meta = meta; }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Transaction {
         @JsonProperty("first_name")
         private String firstName;
