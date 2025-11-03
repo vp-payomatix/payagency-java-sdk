@@ -116,16 +116,12 @@ public class PayAgencyApi {
     }
 
     /**
-     * Process a refund transaction.
+     * Get the Refund API instance for processing refund transactions.
      * 
-     * This is a convenience method that directly calls the refund API.
-     * 
-     * @param data Refund request data
-     * @return Refund response
-     * @throws com.payagency.exceptions.PayAgencyException if the request fails
+     * @return Refund API instance
      */
-    public RefundOutput refund(RefundInput data) {
-        return refundInstance.create(data);
+    public Refund getRefund() {
+        return refundInstance;
     }
 
     /**

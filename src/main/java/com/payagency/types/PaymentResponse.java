@@ -1,10 +1,12 @@
 package com.payagency.types;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response payload for payment operations (S2S, Hosted, APM).
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentResponse {
     @JsonProperty("status")
     private String status;
