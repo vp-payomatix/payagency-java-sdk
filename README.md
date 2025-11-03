@@ -89,7 +89,7 @@ public class Example {
                 .zip("TF10 8DF")
                 .ipAddress("127.0.0.1")
                 .phoneNumber("7654233212")
-                .amount(100) // Integer amount: 100 = $100.00
+                .amount(100) // Integer amount: 100 = 100 in currency
                 .currency("GBP")
                 .cardNumber("4111111111111111")
                 .cardExpiryMonth("12")
@@ -130,7 +130,7 @@ S2SInput s2sInput = S2SInput.builder()
     .zip("TF10 8DF")
     .ipAddress("127.0.0.1")
     .phoneNumber("7654233212")
-    .amount(100) // Integer: 100 = $100.00
+    .amount(100) // Integer: 100 = 100 in currency
     .currency("GBP")
     .cardNumber("4111111111111111")
     .cardExpiryMonth("12")
@@ -185,7 +185,7 @@ HostedInput hostedInput = HostedInput.builder()
     .zip("TF10 8DF")
     .ipAddress("127.0.0.1")
     .phoneNumber("7654233212")
-    .amount(100) // Integer: 100 = $100.00
+    .amount(100) // Integer: 100 = 100 in currency
     .currency("GBP")
     .redirectUrl("https://pay.agency")
     .webhookUrl("https://pay.agency/webhook") // Optional
@@ -212,7 +212,7 @@ APMInput apmInput = APMInput.builder()
     .zip("TF10 8DF")
     .ipAddress("127.0.0.1")
     .phoneNumber("7654233212")
-    .amount(100) // Integer: 100 = $100.00
+    .amount(100) // Integer: 100 = 100 in currency
     .currency("GBP")
     .paymentMethod("paypal") // or "googlepay", "applepay", etc.
     .redirectUrl("https://pay.agency")
@@ -232,7 +232,7 @@ APMOutput result = payAgency.getPayment().apm(apmInput);
 // Create payment link
 PaymentLinkCreateInput linkInput = PaymentLinkCreateInput.builder()
     .paymentTemplateId("PLI07435325281394735") // Required
-    .amount(1000) // Optional - Integer: 1000 = $1000.00
+    .amount(1000) // Optional - Integer: 1000 = 1000 in currency
     .currency("USD") // Optional
     .expiryDate("2024-12-31") // Optional
     .terminalId("T12345") // Optional
@@ -281,7 +281,7 @@ PayoutInput payoutInput = PayoutInput.builder()
     .zip("TF10 8DF")
     .ipAddress("127.0.0.1")
     .phoneNumber("7654233212")
-    .amount(100) // Integer: 100 = $100.00
+    .amount(100) // Integer: 100 = 100 in currency
     .currency("USD")
     .cardNumber("4222222222222222")
     .cardExpiryMonth("10")
@@ -328,7 +328,7 @@ WalletsOutput wallets = payAgency.getPayout().getWallets();
 // Estimate payout fees
 EstimateFeeInput estimateInput = EstimateFeeInput.builder()
     .walletId("WAL7825818519632620")
-    .amount(200) // Integer: 200 = $200.00
+    .amount(200) // Integer: 200 = 200 in currency
     .cardNumber("4111111111111111")
     .build();
 
@@ -415,7 +415,7 @@ CryptoOnRampInput onRampInput = CryptoOnRampInput.builder()
     .lastName("Prince")
     .email("diana@pay.agency")
     .phoneNumber("0123456789")
-    .fiatAmount(200) // Integer: 200 = $200.00
+    .fiatAmount(200) // Integer: 200 = 200 in currency
     .fiatCurrency("EUR")
     .cryptoCurrency("BTC")
     .walletAddress("1BoatSLRHtKNngkdXEeobR76b53LETtpyT")
